@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootstrap5 Website</title>
+
+
+<link rel="stylesheet" href="bootstrap5/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  section { scroll-margin-top: 70px; }
+  .hero-section {
+    background: linear-gradient(135deg, #0d6efd 0%, #084298 100%);
+  }
+  .pricing-card.featured {
+    border: 2px solid #0d6efd;
+    transform: scale(1.03);
+  }
+  .badge-popular {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background-color: #e7f1ff;
+    color: #0d6efd;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .theme-toggle-btn {
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  #testimonialsCarousel .carousel-control-prev,
+  #testimonialsCarousel .carousel-control-next {
+    width: 48px;
+    height: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #8e939b;
+    border-radius: 50%;
+    opacity: 0.9;
+  }
+  #testimonialsCarousel .carousel-control-prev {
+    left: 10px;
+  }
+  #testimonialsCarousel .carousel-control-next {
+    right: 10px;
+  }
+  #testimonialsCarousel .carousel-control-prev:hover,
+  #testimonialsCarousel .carousel-control-next:hover {
+    opacity: 1;
+  }
+  .feature-card {
+  background-color: var(--bs-body-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+ }
+ .feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(13, 110, 253, 0.15);
+  border-color: #0d6efd !important;
+ }
+</style>
+</head>
+<body>
+
+<!---------- NAVBAR ---------->
+<nav class="navbar navbar-expand-lg bg-body sticky-top border-bottom">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#home">
+      <span class="border border-primary rounded px-2 text-primary">B</span>
+      <span class="text-primary">Morales Web Services</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item">
+          <button class="theme-toggle-btn" id="themeToggle" title="Toggle dark mode">
+            <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<header id="home" class="hero-section text-white text-center py-5">
+  <div class="container py-5">
+    <span class="badge bg-white text-primary rounded-pill px-3 py-2 mb-3">Version 5.3.8</span>
+    <h1 class="display-4 fw-bold mb-3">Build fast, responsive sites<br>with Bootstrap</h1>
+    <p class="lead mx-auto mb-4" style="max-width: 700px;">
+      Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass,
+      utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.
+    </p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a href="#pricing" class="btn btn-light btn-lg fw-semibold text-primary">Get Started</a>
+      <a href="https://release-assets.githubusercontent.com/github-production-release-asset/2126244/4cf40147-efdc-4bdf-a995-bc92382773fd?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-09-02T07%3A18%3A25Z&rscd=attachment%3B+filename%3Dbootstrap-5.3.8-dist.zip&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-09-02T06%3A18%3A02Z&ske=2026-09-02T07%3A18%3A25Z&sks=b&skv=2018-11-09&sig=9%2FsaXtN5OXJjuP5xYFVIF%2B7qBgAaRX6QZ11ViDB681Q%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4ODMzMDIwNCwibmJmIjoxNzg4MzI5OTA0LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.RCkD7qYPqDhOBqWmO_IRMaJ01h9zrmp1os_3QZs8L74&response-content-disposition=attachment%3B%20filename%3Dbootstrap-5.3.8-dist.zip&response-content-type=application%2Foctet-stream" target="_blank" class="btn btn-outline-light btn-lg fw-semibold">Download Bootstrap 5.3.8</a>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURES -->
+<section id="features" class="py-5 bg-body-tertiary">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-2">Powerful Features</h2>
+    <p class="text-muted mb-5">Designed to give you full control over your layout and functionality.</p>
+    <div class="row g-4 text-start">
+      <div class="col-md-4">
+        <div class="p-4 border rounded-4 h-100 feature-card">
+          <h5 class="fw-bold">Dark Mode Ready</h5>
+          <p class="text-muted mb-0">Built-in theme switcher using Bootstrap 5's native data-bs-theme attribute.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-4 border rounded-4 h-100 feature-card">
+          <h5 class="fw-bold">100% Mobile First</h5>
+          <p class="text-muted mb-0">Fully fluid layout engineered to scale down seamlessly to mobile screens.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-4 border rounded-4 h-100 feature-card">
+          <h5 class="fw-bold">Interactive UI</h5>
+          <p class="text-muted mb-0">Includes dynamic feedback toasts, sliders, and form validation logic.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-5 bg-body">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-2">Flexible Pricing</h2>
+    <p class="text-muted mb-5">Choose the plan that fits your business needs.</p>
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4">
+        <div class="p-4 border rounded-4 h-100 bg-body text-start feature-card">
+          <h5 class="fw-bold">Starter</h5>
+          <h2 class="fw-bold mt-3">&#8369;0.00 <small class="fs-6 fw-normal text-muted">/mo</small></h2>
+          <ul class="list-unstyled mt-4 mb-4">
+            <li class="mb-2"><i class="bi bi-check-lg text-primary"></i> 1 Project</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-primary"></i> Community Support</li>
+            <li class="mb-2 text-muted"><i class="bi bi-x-lg"></i> Custom Domain</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-primary w-100">Sign Up Free</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="p-4 border pricing-card featured rounded-4 h-100 bg-body text-start position-relative feature-card">
+          <span class="badge bg-primary rounded-pill px-3 py-2 badge-popular">Most Popular</span>
+          <h5 class="fw-bold text-primary">Pro Developer</h5>
+          <h2 class="fw-bold mt-3">&#8369;67.00 <small class="fs-6 fw-normal text-muted">/mo</small></h2>
+          <ul class="list-unstyled mt-4 mb-4">
+            <li class="mb-2"><i class="bi bi-check-lg text-primary"></i> Unlimited Projects</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-primary"></i> Priority Support</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-primary"></i> Custom Domain</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary w-100">Get Started Pro</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="p-4 border rounded-4 h-100 bg-body text-start feature-card">
+          <h5 class="fw-bold">Enterprise</h5>
+          <h2 class="fw-bold mt-3">&#8369;129.00 <small class="fs-6 fw-normal text-muted">/mo</small></h2>
+          <ul class="list-unstyled mt-4 mb-4">
+            <li class="mb-2"><i class="bi bi-check-lg text-primary"></i> Dedicated Server</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-primary"></i> 24/7 Phone Support</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-primary"></i> SLA Guarantee</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-primary w-100">Contact Sales</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="py-5 bg-body-tertiary text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-5">What People Say</h2>
+
+    <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <p class="fs-4 fst-italic mb-4">"The layout structure made it so easy to plug in our own data — didn't expect a starter template to be this flexible."</p>
+          <h5 class="fw-bold mb-0">Kim Joseph Inoc, BSIT-Business Analytics Track</h5>
+          <p class="text-muted">Data Analyst, Insight Metrics Co.</p>
+        </div>
+
+        <div class="carousel-item">
+          <p class="fs-4 fst-italic mb-4">"Clean components, minimal fuss. I was able to customize the pricing table for a client pitch in under an hour."</p>
+          <h5 class="fw-bold mb-0">Raisen Mamaril, BSIT-Business Analytics Track</h5>
+          <p class="text-muted">Business Intelligence Associate, DataForward Inc.</p>
+        </div>
+
+        <div class="carousel-item">
+          <p class="fs-4 fst-italic mb-4">"Solid responsive behavior out of the box — tested it across three device sizes and nothing broke."</p>
+          <h5 class="fw-bold mb-0">Zedrick Rol, BSIT-Network Technology Track</h5>
+          <p class="text-muted">Network Support Engineer, LinkSecure Systems</p>
+        </div>
+
+        <div class="carousel-item">
+          <p class="fs-4 fst-italic mb-4">"Straightforward to deploy and easy to maintain — exactly what you want when you're managing multiple client sites."</p>
+          <h5 class="fw-bold mb-0">Jian Jonson, BSIT-Network Technology Track</h5>
+          <p class="text-muted">IT Infrastructure Technician, NetCore Solutions</p>
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!--FORM -->
+<section id="contact" class="py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-2">Get In Touch</h2>
+    <p class="text-muted mb-5">Fill out the form below to send us a live message.</p>
+
+    <form id="contactForm" class="mx-auto text-start" style="max-width: 700px;" novalidate>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firstName" name="firstName" required>
+        </div>
+        <div class="col-md-6">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" required>
+        </div>
+        <div class="col-12">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="col-12">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary btn-lg w-100">Submit Form</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER  -->
+<footer class="py-4 bg-body-tertiary text-center border-top">
+  <div class="container">
+    <div class="d-flex justify-content-center gap-3 mb-3 fs-5">
+      <a href="#" class="text-body"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="text-body"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" class="text-body"><i class="bi bi-github"></i></a>
+    </div>
+    <p class="text-muted mb-0">&copy; 2026 Morales Web Services. Built with Bootstrap 5.3.</p>
+  </div>
+</footer>
+
+<script src="bootstrap5/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+  // ---------- Dark / Light Mode Toggle ----------
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const htmlEl = document.documentElement;
+
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-bs-theme', theme);
+    themeIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+    localStorage.setItem('preferredTheme', theme);
+  }
+
+  // Load saved theme on page load (falls back to light)
+  const savedTheme = localStorage.getItem('preferredTheme') || 'light';
+  applyTheme(savedTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = htmlEl.getAttribute('data-bs-theme');
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+
+</script>
+
+</body>
+</html>
